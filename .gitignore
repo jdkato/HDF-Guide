@@ -55,5 +55,4 @@ compile_commands.json
 *.sublime-workspace
 
 build
-compile_commands.json
 .cache

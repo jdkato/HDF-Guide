@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>intro.html</file>
+        <file>dataset.html</file>
+        <file>search.html</file>
+        <file>img/sideL.svg</file>
+        <file>img/sideR.svg</file>
+        <file>img/sideB.svg</file>
+        <file>css/main.css</file>
+    </qresource>
+</RCC>

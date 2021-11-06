@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" x="0px" y="0px" viewBox="2 2 12 12" style="enable-background:new 0 0 16 16;" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <path d="M14,13V3c0-0.552-0.448-1-1-1H3C2.448,2,2,2.448,2,3v10c0,0.552,0.448,1,1,1h10C13.552,14,14,13.552,14,13z M3,13V3h10v10   H3z" style="fill: rgb(192, 192, 192);"/>
+    <rect x="9" y="4" width="3" height="8" style="fill: rgb(192, 192, 192);"/>
+  </g>
+</svg>

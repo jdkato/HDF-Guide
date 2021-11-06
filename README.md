@@ -1,4 +1,4 @@
-# HDF Guide
+# HDF (Gui)de
 
 <table>
     <tr>

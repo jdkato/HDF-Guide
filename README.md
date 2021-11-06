@@ -15,4 +15,4 @@
     </tr>
 </table>
 
-> A domain-agnostic exploration app for HDF5 files: search, preview, and quickly navigate even the largest of datasets.
+> A domain-agnostic exploration app for HDF5 files: search, preview, and quickly navigate even the largest of datasets. Built with Qt 6, C++, and libhdf5.

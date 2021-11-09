@@ -34,11 +34,10 @@ void MainWindow::init() {
                                    true);
   ads::CDockManager::setConfigFlag(ads::CDockManager::FocusHighlighting, true);
 
-  DockManager = new ads::CDockManager(this);
-
+  this->DockManager = new ads::CDockManager(this);
   // We clear the stylesheet because we set our own later on -- the default
   // stylesheet doesn't look good in dark modes.
-  DockManager->setStyleSheet("");
+  this->DockManager->setStyleSheet("");
 
   QVBoxLayout *layout = new QVBoxLayout;
   QWidget *mainArea = new QWidget;
@@ -51,58 +50,63 @@ void MainWindow::init() {
   // previewing datasets, which might be a table, image, chart, etc.
   ads::CDockWidget *CentralDockWidget = new ads::CDockWidget("CentralWidget");
   CentralDockWidget->setWidget(mainArea);
-  auto *CentralDockArea = DockManager->setCentralWidget(CentralDockWidget);
+  auto *CentralDockArea =
+      this->DockManager->setCentralWidget(CentralDockWidget);
   CentralDockArea->setAllowedAreas(ads::DockWidgetArea::OuterDockAreas);
 
   // The "Group" dock area is our file-like browser for the file's groups.
-  TableDockWidget = new ads::CDockWidget("Groups");
-  TableDockWidget->setWidget(ui->explorer);
-  TableDockWidget->setMinimumSizeHintMode(
+  this->TableDockWidget = new ads::CDockWidget("Groups");
+  this->TableDockWidget->setWidget(ui->explorer);
+  this->TableDockWidget->setMinimumSizeHintMode(
       ads::CDockWidget::MinimumSizeHintFromDockWidget);
-  TableDockWidget->resize(250, 150);
-  TableDockWidget->setMinimumSize(200, 150);
-  DockManager->addDockWidget(ads::DockWidgetArea::LeftDockWidgetArea,
-                             TableDockWidget);
+  this->TableDockWidget->resize(250, 150);
+  this->TableDockWidget->setMinimumSize(200, 150);
+
+  this->DockManager->addDockWidget(ads::DockWidgetArea::LeftDockWidgetArea,
+                                   TableDockWidget);
 
   // The "Summary" dock area shows an at-a-glance summary of a dataset. It's
   // designed to be similar to the right-hand file preview available in the
   // macOS Finder app.
-  SummaryDockWidget = new ads::CDockWidget("Summary");
-  SummaryDockWidget->setWidget(ui->summary);
-  SummaryDockWidget->setMinimumSizeHintMode(
+  this->SummaryDockWidget = new ads::CDockWidget("Summary");
+  this->SummaryDockWidget->setWidget(ui->summary);
+  this->SummaryDockWidget->setMinimumSizeHintMode(
       ads::CDockWidget::MinimumSizeHintFromDockWidget);
-  SummaryDockWidget->resize(250, 150);
-  SummaryDockWidget->setMinimumSize(200, 150);
+  this->SummaryDockWidget->resize(250, 150);
+  this->SummaryDockWidget->setMinimumSize(200, 150);
+
   auto SummaryArea =
-      DockManager->addDockWidget(ads::DockWidgetArea::RightDockWidgetArea,
-                                 SummaryDockWidget, CentralDockArea);
+      this->DockManager->addDockWidget(ads::DockWidgetArea::RightDockWidgetArea,
+                                       SummaryDockWidget, CentralDockArea);
 
   // The "Attributes" dock area shows a table of a dataset's attributes, their
   // type, and their value.
   //
   // TODO: Should we support searching for a dataset by its attributes? Maybe
   // something like `dataset:my_attribute:my_type`?
-  PropertiesDockWidget = new ads::CDockWidget("Attributes");
-  PropertiesDockWidget->setWidget(ui->attributes);
-  PropertiesDockWidget->setMinimumSizeHintMode(
+  this->PropertiesDockWidget = new ads::CDockWidget("Attributes");
+  this->PropertiesDockWidget->setWidget(ui->attributes);
+  this->PropertiesDockWidget->setMinimumSizeHintMode(
       ads::CDockWidget::MinimumSizeHintFromDockWidget);
-  PropertiesDockWidget->resize(250, 150);
-  PropertiesDockWidget->setMinimumSize(200, 150);
-  DockManager->addDockWidget(ads::DockWidgetArea::BottomDockWidgetArea,
-                             PropertiesDockWidget, SummaryArea);
+  this->PropertiesDockWidget->resize(250, 150);
+  this->PropertiesDockWidget->setMinimumSize(200, 150);
+
+  this->DockManager->addDockWidget(ads::DockWidgetArea::BottomDockWidgetArea,
+                                   PropertiesDockWidget, SummaryArea);
 
   // The "Console" dock area is a simple read-only, text-based widget for
   // communicating with a user.
   //
   // TODO: hide by default?
-  ConsoleDockWidget = new ads::CDockWidget("Console");
-  ConsoleDockWidget->setWidget(ui->console);
-  ConsoleDockWidget->setMinimumSizeHintMode(
+  this->ConsoleDockWidget = new ads::CDockWidget("Console");
+  this->ConsoleDockWidget->setWidget(ui->console);
+  this->ConsoleDockWidget->setMinimumSizeHintMode(
       ads::CDockWidget::MinimumSizeHintFromDockWidget);
-  ConsoleDockWidget->resize(250, 150);
-  ConsoleDockWidget->setMinimumSize(200, 150);
-  DockManager->addDockWidget(ads::DockWidgetArea::BottomDockWidgetArea,
-                             ConsoleDockWidget, CentralDockArea);
+  this->ConsoleDockWidget->resize(250, 150);
+  this->ConsoleDockWidget->setMinimumSize(200, 150);
+
+  this->DockManager->addDockWidget(ads::DockWidgetArea::BottomDockWidgetArea,
+                                   ConsoleDockWidget, CentralDockArea);
 
   ui->mainwidget->layout()->setContentsMargins(0, 0, 0, 0);
   ui->searchLineEdit->setIcon(this->awesome->icon(fa::search));

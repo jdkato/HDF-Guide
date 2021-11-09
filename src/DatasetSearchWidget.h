@@ -9,6 +9,7 @@
 #include <QStyledItemDelegate>
 #include <QTreeWidget>
 #include <QWidget>
+#include <QAction>
 #include <highfive/H5File.hpp>
 
 class PopupDelegate : public QStyledItemDelegate {
@@ -38,6 +39,9 @@ class DatasetSearchWidget : public QLineEdit {
 
   void setIcon(QIcon icon);
   void updateModel(QTreeWidget *root, QIcon icon);
+
+private:
+  QAction *searchIconPlaceholder;
 };
 
 #endif  // DATASETSEARCHWIDGET_H

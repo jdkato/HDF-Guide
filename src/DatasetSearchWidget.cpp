@@ -2,16 +2,12 @@
 
 #include <QTreeWidgetItemIterator>
 
-DatasetSearchWidget::DatasetSearchWidget(QWidget *parent) : QLineEdit(parent) {
-  this->setPlaceholderText("Search for a dataset ...");
-  // TODO: The QIcon-based icon placement doesn't seem to work on macOS
-  // consistently?
-  //
-  // ui->searchLineEdit->setPlaceholderText("🔍");
-}
+DatasetSearchWidget::DatasetSearchWidget(QWidget *parent) : QLineEdit(parent) {}
 
 void DatasetSearchWidget::setIcon(QIcon icon) {
-  this->addAction(icon, QLineEdit::LeadingPosition);
+  this->setPlaceholderText("Search for a dataset ...");
+  this->searchIconPlaceholder =
+      this->addAction(icon, QLineEdit::LeadingPosition);
 }
 
 void DatasetSearchWidget::updateModel(QTreeWidget *root, QIcon icon) {

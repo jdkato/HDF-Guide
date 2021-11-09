@@ -79,7 +79,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QSplitter" name="middleSplitter">
+         <widget class="QSplitter" name="centralSplitter">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
             <horstretch>0</horstretch>
